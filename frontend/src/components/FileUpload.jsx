@@ -17,10 +17,10 @@ const FileUpload = ({ onFileUpload }) => {
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 px-4">
       <div className="w-full max-w-xl bg-white p-10 rounded-2xl shadow-2xl text-center">
         <h1 className="text-4x1 font-extrabold text-slate-800 mb-3">
-          CLARITY BOT
+          LEARN-GPT
         </h1>
         <p className="text-slate-600 mb-8" id="upload-instructions">
-          Upload a document and let clarity-bot simplify it for you ✨
+          Upload a document and let Learn-gpt AI simplify it for you ✨
         </p>
 
         <label
