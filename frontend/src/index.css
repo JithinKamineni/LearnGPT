@@ -1,0 +1,196 @@
+/* ===== Global Styles ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe, #dbeafe);
+  color: #1e293b;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Smooth fade-in animation for all containers */
+div {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Buttons Styling ===== */
+button {
+  background: #f1f5f9;
+  color: #1e293b;
+  border: none;
+  border-radius: 14px;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 15px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shine animation effect */
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-20deg);
+  transition: left 0.5s;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+/* Hover State */
+button:hover {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  color: #fff;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 18px rgba(59, 130, 246, 0.35);
+}
+
+/* Active State */
+button:active {
+  transform: scale(0.97);
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.25);
+}
+
+/* Disabled button */
+button:disabled {
+  background: #94a3b8;
+  color: #e2e8f0;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* ===== Chatbot Quick Actions Box ===== */
+div[class*="absolute"].w-80 {
+  position: absolute;
+  bottom: 0;
+  left: 5rem; /* shift to the right of main button */
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: slideInRight 0.4s ease;
+  width: max-content; /* expand to fit buttons */
+  max-width: 90vw;    /* prevent going off-screen */
+}
+
+/* Title row inside quick actions */
+div[class*="absolute"].w-80 > div:first-child {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+/* Buttons row inside quick actions */
+div[class*="absolute"].w-80 .actions {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  flex-wrap: nowrap; /* keep buttons in one row */
+  overflow-x: visible; /* no scrolling, box expands */
+}
+
+div[class*="absolute"].w-80 .actions button {
+  flex: 0 0 auto;
+  min-width: 7rem;
+  white-space: nowrap;
+}
+
+/* Slide-in animation */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===== Mobile Responsiveness ===== */
+@media (max-width: 480px) {
+  div[class*="absolute"].w-80 {
+    left: 1rem;
+    bottom: 4rem;
+    flex-direction: column;
+    width: auto;
+  }
+  div[class*="absolute"].w-80 .actions {
+    flex-direction: column;
+    overflow-x: visible;
+  }
+  div[class*="absolute"].w-80 .actions button {
+    min-width: 100%;
+  }
+}
+
+/* ===== Smaller Chatbot Close Button ===== */
+div[class*="absolute"].w-80 > div:first-child > button {
+  padding: 0.25rem;           /* smaller padding */
+  width: 4rem;              /* compact width */
+  height: 2rem;             /* compact height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div[class*="absolute"].w-80 > div:first-child > button svg {
+  width: 0.75rem;             /* smaller X icon */
+  height: 0.75rem;
+}
+h1 {
+  font-size: 3.2rem; /* slightly larger for more impact */
+  font-weight: 900; /* maintain boldness */
+  color: #0f172a;
+  font-family: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: 1.5px; /* slightly more spacing for sophistication */
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15); /* slightly deeper shadow for subtle 3D effect */
+  background: linear-gradient(90deg, #4f46e5, #3b82f6, #06b6d4); /* added third color for extra vibrance */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.4s ease, filter 0.4s ease, color 0.4s ease; /* smoother and longer hover transition */
+}
+
+h1:hover {
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2)); /* enhances 3D depth on hover */
+  color: #818cf8; /* gentle color shift complements gradient */
+}

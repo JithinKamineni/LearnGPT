@@ -1,0 +1,22 @@
+ # Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Project-specific
+.env
+uploads/
+
+# IDEs and OS files
+.vscode/
+.idea/
+.DS_Store
